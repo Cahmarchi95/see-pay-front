@@ -10,12 +10,10 @@ import { environment } from './environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,8 +21,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AngularFireAuthModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
