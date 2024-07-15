@@ -47,23 +47,23 @@
       <input
         type="password"
         placeholder="Senha"
-        formControlName="senha"
+        formControlName="password"
         required
         minlength="6"
         [ngClass]="{
           'input-invalid':
-            (form.get('senha')!.touched &&
-              form.get('senha')!.hasError('required')) ||
-            (form.get('senha')!.touched &&
-              form.get('senha')!.hasError('minlength'))
+            (form.get('password')!.touched &&
+              form.get('password')!.hasError('required')) ||
+            (form.get('password')!.touched &&
+              form.get('password')!.hasError('minlength'))
         }"
       />
 
-      <div *ngIf="form.controls['senha'].touched" class="invalid-text">
-        <div *ngIf="form.controls['senha'].errors?.['required']">
+      <div *ngIf="form.controls['password'].touched" class="invalid-text">
+        <div *ngIf="form.controls['password'].errors?.['required']">
           Senha é obrigatório.
         </div>
-        <div *ngIf="form.controls['senha'].errors?.['minlength']">
+        <div *ngIf="form.controls['password'].errors?.['minlength']">
           A senha deve ter no mínimo 6 caracteres.
         </div>
       </div>
