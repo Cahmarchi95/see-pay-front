@@ -10,10 +10,17 @@ import { environment } from './environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NavComponent } from './components/nav/nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { DespesasComponent } from './pages/despesas/despesas.component';
+import { RendimentosComponent } from './pages/rendimentos/rendimentos.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, NavComponent, DespesasComponent, RendimentosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +28,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AngularFireAuthModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
