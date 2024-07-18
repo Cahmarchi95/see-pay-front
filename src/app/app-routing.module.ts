@@ -5,6 +5,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { NavComponent } from './components/nav/nav.component';
 import { DespesasComponent } from './pages/despesas/despesas.component';
 import { RendimentosComponent } from './pages/rendimentos/rendimentos.component';
+import { DashComponent } from './components/dash/dash.component';
+import { AuthGuardService } from './services/auth.guard.service';
 
 const routes: Routes = [
   {
@@ -17,6 +19,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: NavComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: 'despesas',
@@ -25,6 +28,10 @@ const routes: Routes = [
       {
         path: 'rendimentos',
         component: RendimentosComponent,
+      },
+      {
+        path: 'dash',
+        component: DashComponent,
       },
     ],
   },
