@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { environment } from './../../environments/environment';
-import { Despesa } from './../../models/despesa';
 import { DataService } from './../../services/data.service';
-
-//https://see-pay-93541-default-rtdb.firebaseio.com/
 
 @Component({
   selector: 'app-form',

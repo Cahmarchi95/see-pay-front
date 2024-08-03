@@ -34,6 +34,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from './environments/environment';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { environment } from './environments/environment';
     DashComponent,
     CardComponent,
     FormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
