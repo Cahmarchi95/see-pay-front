@@ -36,5 +36,6 @@ body {
   --secondary200: #23222266;
   --secondary300: #23222299;
   --error100: #f9beda;
+  --error200: #ff87c1;
   --error500: #c30b64;
 }
