@@ -13,7 +13,9 @@ import { DespesasComponent } from './pages/despesas/despesas.component';
 import { RendimentosComponent } from './pages/rendimentos/rendimentos.component';
 import { DashComponent } from './components/dash/dash.component';
 import { CardComponent } from './components/card/card.component';
-import { FormComponent } from './components/form/form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DespesaFormComponent } from './components/despesa-form/despesa-form.component';
+import { DespesaTableComponent } from './components/despesa-table/despesa-table.component';
 
 //Material
 
@@ -29,12 +31,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from './environments/environment';
-import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +50,9 @@ import { HomeComponent } from './pages/home/home.component';
     RendimentosComponent,
     DashComponent,
     CardComponent,
-    FormComponent,
     HomeComponent,
+    DespesaFormComponent,
+    DespesaTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,9 @@ import { HomeComponent } from './pages/home/home.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
