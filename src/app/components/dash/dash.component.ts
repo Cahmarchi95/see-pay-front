@@ -18,14 +18,14 @@ export class DashComponent {
         return {
           columns: 2,
           chart: { cols: 1, rows: 2 },
-          table: { cols: 1, rows: 4 },
+          table: { cols: 1, rows: 2 },
         };
       } else {
         // Layout para telas maiores (desktop)
         return {
           columns: 2,
           chart: { cols: 1, rows: 2 },
-          table: { cols: 2, rows: 3 },
+          table: { cols: 2, rows: 2 },
         };
       }
     })
