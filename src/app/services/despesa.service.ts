@@ -36,6 +36,17 @@ export class DespesaService {
       );
   }
 
+  calcularValorTotal(): Observable<number> {
+    return this.getAllDespesas().pipe(
+      map((despesas) =>
+        despesas.reduce(
+          (total, despesa) => total + parseFloat(despesa.valor),
+          0
+        )
+      )
+    );
+  }
+
   // deleteDespesa(despesa: Despesa): Observable<void> {
   //   return from(this.afs.doc('/Despesas/' + despesa.id).delete());
   // }
