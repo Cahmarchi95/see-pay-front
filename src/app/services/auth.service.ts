@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private router: Router,
+    private firestore: AngularFirestore
+  ) {}
 
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
@@ -23,12 +28,25 @@ export class AuthService {
 
   register(email: string, password: string) {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(
-      () => {
-        alert('Usuário cadastrado com sucesso!');
-        this.router.navigate(['/login']);
+      async (userCredential) => {
+        const userUid = userCredential.user?.uid;
+        if (userUid) {
+          try {
+            await this.firestore.collection('users').doc(userUid).set({
+              email: email,
+              password: password,
+            });
+            alert('Usuário cadastrado com sucesso!');
+            this.router.navigate(['/login']);
+          } catch (err) {
+            alert('Erro ao salvar dados do usuário.');
+            console.error('Erro ao salvar dados do usuário:', err);
+          }
+        }
       },
-      (err) => {
+      (err: any) => {
         alert('Algo deu errado, tente novamente');
+        console.error('Erro ao criar usuário:', err);
         this.router.navigate(['/signup']);
       }
     );

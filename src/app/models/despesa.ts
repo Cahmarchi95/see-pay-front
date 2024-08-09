@@ -3,4 +3,5 @@ export interface Despesa {
   despesa: string;
   data: Date;
   valor: string;
+  userId?: string; // Adicionar o campo userId
 }
