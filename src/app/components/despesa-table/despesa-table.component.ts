@@ -16,7 +16,6 @@ export class DespesaTableComponent {
   displayedColumns: string[] = ['despesa', 'valor', 'data', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  valorTotal: number = 0;
 
   constructor(private despesaService: DespesaService) {
     this.despesaService.getAllDespesas().subscribe((res) => {
@@ -24,10 +23,6 @@ export class DespesaTableComponent {
       this.dataSource = new MatTableDataSource<Despesa>(this.despesasList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    });
-
-    this.despesaService.calcularValorTotal().subscribe((total) => {
-      this.valorTotal = total;
     });
   }
 }

@@ -21,14 +21,3 @@
   color: var(--secondary100) !important;
   border-bottom: 1px solid var(--primary700);
 }
-
-.mat-mdc-card-footer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  font-size: 16px;
-  color: var(--error200) !important;
-  padding-left: 20px;
-  font-weight: 500;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.26);
-}
