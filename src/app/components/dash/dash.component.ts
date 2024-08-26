@@ -6,7 +6,7 @@ import { DespesaService } from './../../services/despesa.service';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css'],
+  styleUrls: ['./dash.component.scss'],
 })
 export class DashComponent {
   private breakpointObserver = inject(BreakpointObserver);

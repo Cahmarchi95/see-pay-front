@@ -6,7 +6,7 @@ import { catchError, of } from 'rxjs';
 @Component({
   selector: 'app-despesa-form',
   templateUrl: './despesa-form.component.html',
-  styleUrls: ['./despesa-form.component.css'],
+  styleUrls: ['./despesa-form.component.scss'],
 })
 export class DespesaFormComponent implements OnInit {
   despesaForm!: FormGroup;

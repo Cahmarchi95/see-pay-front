@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-despesa-table',
   templateUrl: './despesa-table.component.html',
-  styleUrls: ['./despesa-table.component.css'],
+  styleUrls: ['./despesa-table.component.scss'],
 })
 export class DespesaTableComponent {
   despesasList!: Despesa[];
