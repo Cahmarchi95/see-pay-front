@@ -19,7 +19,10 @@ export class DespesaFormComponent implements OnInit {
   ngOnInit() {
     this.despesaForm = this.fb.group({
       despesa: ['', Validators.required],
-      valor: [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      valor: [
+        null,
+        [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)],
+      ],
       data: ['', Validators.required],
     });
   }
@@ -44,7 +47,7 @@ export class DespesaFormComponent implements OnInit {
           next: () => {
             alert('Despesa cadastrada com sucesso!');
             this.despesaForm.reset();
-            this.clearValidators();
+            this.clearAndUpdateValidation();
           },
           error: (error) => {
             console.error('Erro ao cadastrar despesa:', error);
@@ -55,12 +58,17 @@ export class DespesaFormComponent implements OnInit {
     }
   }
 
-  private clearValidators() {
-    this.despesaForm.get('despesa')?.clearValidators();
+  private clearAndUpdateValidation() {
+    this.despesaForm.get('despesa')?.setValidators([Validators.required]);
+    this.despesaForm
+      .get('valor')
+      ?.setValidators([
+        Validators.required,
+        Validators.pattern(/^\d+(\.\d{1,2})?$/),
+      ]);
+    this.despesaForm.get('data')?.setValidators([Validators.required]);
     this.despesaForm.get('despesa')?.updateValueAndValidity();
-    this.despesaForm.get('valor')?.clearValidators();
     this.despesaForm.get('valor')?.updateValueAndValidity();
-    this.despesaForm.get('data')?.clearValidators();
     this.despesaForm.get('data')?.updateValueAndValidity();
   }
 }
