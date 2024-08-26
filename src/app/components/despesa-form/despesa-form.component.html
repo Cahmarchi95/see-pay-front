@@ -11,10 +11,17 @@
       type="number"
       matInput
       placeholder="ex. 100.00"
+      step="0.01"
     />
     <mat-error *ngIf="despesaForm.get('valor')?.hasError('required')"
       >Valor é obrigatório</mat-error
     >
+    <mat-error *ngIf="despesaForm.get('valor')?.hasError('pattern')">
+      O valor deve estar no formato correto (ex. 100.00)
+    </mat-error>
+    <mat-error *ngIf="despesaForm.get('valor')?.hasError('step')">
+      O valor deve ter até duas casas decimais
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input
