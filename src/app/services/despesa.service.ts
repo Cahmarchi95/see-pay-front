@@ -19,7 +19,6 @@ export class DespesaService {
     const user = await this.afAuth.currentUser;
     return user ? user.uid : null;
   }
-
   addDespesa(despesa: Despesa): Observable<void> {
     return from(this.getUserId()).pipe(
       switchMap((userId) => {
@@ -65,38 +64,9 @@ export class DespesaService {
 
   calcularValorTotal(): Observable<number> {
     return this.getAllDespesas().pipe(
-      map((despesas) =>
-        despesas.reduce(
-          (total, despesa) => total + parseFloat(despesa.valor),
-          0
-        )
-      )
+      map((despesas) => {
+        return despesas.reduce((total, despesa) => total + despesa.valor, 0);
+      })
     );
   }
-
-  // // Método para deletar despesa
-  // deleteDespesa(despesa: Despesa): Observable<void> {
-  //   return from(this.getUserId()).pipe(
-  //     switchMap(userId => {
-  //       if (!userId || despesa.userId !== userId) {
-  //         throw new Error('Usuário não tem permissão para deletar esta despesa');
-  //       }
-  //       return from(this.afs.doc('/Despesas/' + despesa.id).delete());
-  //     })
-  //   );
-  // }
-
-  // // Método para atualizar despesa
-  // updateDespesa(despesa: Despesa): Observable<void> {
-  //   return from(this.getUserId()).pipe(
-  //     switchMap(userId => {
-  //       if (!userId || despesa.userId !== userId) {
-  //         throw new Error('Usuário não tem permissão para atualizar esta despesa');
-  //       }
-  //       return this.afs.doc('/Despesas/' + despesa.id).delete().pipe(
-  //         switchMap(() => this.addDespesa(despesa))
-  //       );
-  //     })
-  //   );
-  // }
 }

@@ -19,7 +19,7 @@ export class DespesaFormComponent implements OnInit {
   ngOnInit() {
     this.despesaForm = this.fb.group({
       despesa: ['', Validators.required],
-      valor: ['', Validators.required],
+      valor: [null, [Validators.required, Validators.pattern('^[0-9]+$')]],
       data: ['', Validators.required],
     });
   }

@@ -13,8 +13,14 @@ export class DashComponent {
   valorTotal: number = 0;
 
   constructor(private despesaService: DespesaService) {
-    this.despesaService.calcularValorTotal().subscribe((total) => {
-      this.valorTotal = total;
+    this.despesaService.calcularValorTotal().subscribe({
+      next: (total) => {
+        console.log('Total calculado:', total); // Debugging line
+        this.valorTotal = total;
+      },
+      error: (err) => {
+        console.error('Erro ao calcular total:', err); // Error handling
+      },
     });
   }
 
