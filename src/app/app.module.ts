@@ -35,6 +35,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -78,6 +79,7 @@ import { environment } from './environments/environment';
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
