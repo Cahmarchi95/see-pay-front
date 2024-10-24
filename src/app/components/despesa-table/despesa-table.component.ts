@@ -34,13 +34,6 @@ export class DespesaTableComponent {
     this.loadDespesas();
   }
 
-  openModal() {
-    this.dialog.open(ModalComponent, {
-      width: '60%',
-      height: '400px',
-    });
-  }
-
   loadDespesas() {
     this.despesaService.getAllDespesas().subscribe((data) => {
       this.dataSource = data;
@@ -64,5 +57,20 @@ export class DespesaTableComponent {
         }
       );
     }
+  }
+
+  // Método para abrir o modal de edição
+  openModal(despesa: Despesa) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: despesa, // Passando a despesa para o modal
+      width: '45%',
+      height: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.loadDespesas(); // Recarrega a lista após edição
+      }
+    });
   }
 }

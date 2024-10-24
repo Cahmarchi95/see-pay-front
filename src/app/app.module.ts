@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -16,6 +17,7 @@ import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DespesaFormComponent } from './components/despesa-form/despesa-form.component';
 import { DespesaTableComponent } from './components/despesa-table/despesa-table.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 //Material
 
@@ -56,6 +58,7 @@ import { environment } from './environments/environment';
     HomeComponent,
     DespesaFormComponent,
     DespesaTableComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
