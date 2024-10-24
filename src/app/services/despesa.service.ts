@@ -69,4 +69,8 @@ export class DespesaService {
       })
     );
   }
+
+  deleteDespesa(despesaId: string): Observable<void> {
+    return from(this.afs.collection('/despesas').doc(despesaId).delete());
+  }
 }
